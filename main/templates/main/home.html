@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Management System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        nav {
+            background-color: #b30000;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: white;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: #b30000;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #b30000;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #b30000;
+            margin-bottom: 15px;
+        }
+        
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 300px;
+        }
+        .stock-section {
+          text-align: center;
+          margin-top: 40px;
+          padding: 30px 15px;
+        }
+
+        .stock-section h2 {
+           color: #b30000;
+           margin-bottom: 25px;
+        }
+
+        .stock-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .stock-card {
+            width: 150px;
+            background: white;
+            border-top: 5px solid #b30000;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .stock-card h3 {
+            color: #b30000;
+            font-size: 24px;
+            margin-bottom: 10px;
+       }
+
+        .stock-card p {
+            color: #333;
+            font-size: 17px;
+            font-weight: bold;
+      }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>Blood Bank</h2>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/donor/">Donor</a>
+            <a href="/patient/">Patient</a>
+            <a href="/login/">Login</a>
+              
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Blood Bank Management System</h1>
+
+    <p><h2>Donate Blood, Save Lives, Share Hope.</h2></p>
+
+        <a href="/blood_search/" class="btn">Find Blood</a>
+        <a href="/blood-request/" class="btn">Request Blood</a>
+         <div class="stock-section">
+             <h2> Available Blood Stock</h2>
+
+            <div class="stock-container">
+
+               {% for stock in stocks %}
+               <div class="stock-card">
+                   <h3>{{ stock.blood_group }}</h3>
+                   <p>{{ stock.units }} Units</p>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>
